@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Infrastructure.EFCore\\MarketPlace.Infrastructure.EFCore.csproj",
+      "projectUniqueName": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Infrastructure.EFCore\\MarketPlace.Infrastructure.EFCore.csproj",
       "projectName": "MarketPlace.Infrastructure.EFCore",
-      "projectPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Infrastructure.EFCore\\MarketPlace.Infrastructure.EFCore.csproj",
+      "projectPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Infrastructure.EFCore\\MarketPlace.Infrastructure.EFCore.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Infrastructure.EFCore\\obj\\",
+      "outputPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Infrastructure.EFCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

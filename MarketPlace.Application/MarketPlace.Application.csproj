@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+    <Folder Include="FacadePattern\" />
+    <Folder Include="InterfaceServices\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Security%28Identity%29\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

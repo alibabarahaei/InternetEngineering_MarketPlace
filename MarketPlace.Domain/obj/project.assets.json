@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Domain\\MarketPlace.Domain.csproj",
+      "projectUniqueName": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Domain\\MarketPlace.Domain.csproj",
       "projectName": "MarketPlace.Domain",
-      "projectPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Domain\\MarketPlace.Domain.csproj",
+      "projectPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Domain\\MarketPlace.Domain.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Domain\\obj\\",
+      "outputPath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1eKFjB4hhQB59tXgKPxkYIB17G1jN+mkK+19aYyWkA5erAvEzhRgTyYFge7O7fu0YP9w8ANky10DvoyRK/U9Dg==",
+  "dgSpecHash": "bhrL3BNQPMZLzSo0R78wqmyCuPsn3U0DShrhzzbhG2tCWASwgoKc45xgZ8r3xtBE4EZA3w4RumtmJ6IYH0ymig==",
   "success": true,
-  "projectFilePath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngeeniering\\MarketPlace\\MarketPlace.Infrastructure.EFCore\\MarketPlace.Infrastructure.EFCore.csproj",
+  "projectFilePath": "C:\\Amir\\Document_visual_studio_2022\\InternetEngineering_MarketPlace\\MarketPlace.Infrastructure.EFCore\\MarketPlace.Infrastructure.EFCore.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
