@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="InterfaceRepositories\" />
-    <Folder Include="Models\" />
+    <Compile Remove="InterfaceRepositories\**" />
+    <EmbeddedResource Remove="InterfaceRepositories\**" />
+    <None Remove="InterfaceRepositories\**" />
   </ItemGroup>
 
 </Project>
