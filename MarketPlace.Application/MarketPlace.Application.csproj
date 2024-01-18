@@ -8,12 +8,17 @@
 
   <ItemGroup>
     <Folder Include="DTOs\" />
+    <Folder Include="Extensions\" />
     <Folder Include="FacadePattern\" />
     <Folder Include="InterfaceServices\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Security%28Identity%29\" />
-    <Folder Include="Utilities\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LazZiya.ImageResize" Version="4.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.2" />
   </ItemGroup>
 
 </Project>
