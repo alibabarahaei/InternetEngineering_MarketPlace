@@ -13,6 +13,6 @@ namespace MarketPlace.Domain.Models.Common
         public long Id { get; set; }
         public bool IsDelete { get; set; }
         public DateTime CreateDate { get; set; }
-        public DateTime LastUpdateDate { get; set; }
+        public DateTime LastUpdateDate { get; set;} 
     }
 }
