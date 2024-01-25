@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace MarketPlace.Domain.Models.Products
 {
-    internal class ProductDicountUse
+    public class ProductDiscountUse : BaseEntity
     {
+
+        public long ProductDiscountId { get; set; }
+        public long UserId { get; set; }
+
+        public User User { get; set; }
+        public ProductDiscount ProductDiscount { get; set; }
+
+        
     }
 }
