@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketPlace.Domain.Models.Products
 {
-    internal class ProductDicountUse
+    internal class ProductSelectedCategory
     {
     }
 }

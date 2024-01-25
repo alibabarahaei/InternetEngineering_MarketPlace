@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MarketPlace.Domain.Models.Products
+namespace MarketPlace.Domain.Models.Wallet
 {
-    internal class ProductDicountUse
+    internal class SellerWallet
     {
     }
 }
