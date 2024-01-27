@@ -1,4 +1,7 @@
-﻿namespace MarketPlace.Application.InterfaceServices
+﻿using MarketPlace.Application.DTOs.Orders;
+using MarketPlace.Domain.Models.ProductOrder;
+
+namespace MarketPlace.Application.InterfaceServices
 {
     public interface IOrderService : IAsyncDisposable
     {
