@@ -1,10 +1,5 @@
 ﻿using MarketPlace.Domain.Models.Common;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarketPlace.Domain.Models.Products
 {
@@ -25,7 +20,10 @@ namespace MarketPlace.Domain.Models.Products
 
         #region relations
 
-       
+        public Product Product { get; set; }
+
+        public ICollection<ProductDiscountUse> ProductDiscountUses { get; set; }
+
         #endregion
     }
 }

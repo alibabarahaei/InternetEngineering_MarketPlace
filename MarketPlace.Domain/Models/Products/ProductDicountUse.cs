@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MarketPlace.Domain.Models.Common;
+using MarketPlace.Domain.Models.User;
 
 namespace MarketPlace.Domain.Models.Products
 {
@@ -18,7 +15,7 @@ namespace MarketPlace.Domain.Models.Products
 
         #region relations
 
-        public User User { get; set; }
+        public ApplicationUser User { get; set; }
         public ProductDiscount ProductDiscount { get; set; }
 
         #endregion

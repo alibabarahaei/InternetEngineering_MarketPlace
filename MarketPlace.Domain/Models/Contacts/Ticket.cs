@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MarketPlace.Domain.Models.User;
 
 namespace MarketPlace.Domain.Models.Contacts
 {
@@ -36,6 +37,8 @@ namespace MarketPlace.Domain.Models.Contacts
 
         #region relations
 
+        public ApplicationUser Owner { get; set; }
+        public ICollection<TicketMessage> TicketMessages { get; set; }
 
         #endregion
     }

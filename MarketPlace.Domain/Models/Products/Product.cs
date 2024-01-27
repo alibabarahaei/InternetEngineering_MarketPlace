@@ -1,4 +1,6 @@
 ﻿using MarketPlace.Domain.Models.Common;
+using MarketPlace.Domain.Models.ProductOrder;
+using MarketPlace.Domain.Models.Store;
 using System.ComponentModel.DataAnnotations;
 
 namespace MarketPlace.Domain.Models.Products
@@ -47,6 +49,13 @@ namespace MarketPlace.Domain.Models.Products
 
         #region relations
 
+        public ICollection<ProductSelectedCategory> ProductSelectedCategories { get; set; }
+        public ICollection<ProductColor> ProductColors { get; set; }
+        public ICollection<ProductGallery> ProductGalleries { get; set; }
+        public Seller Seller { get; set; }
+        public ICollection<ProductFeature> ProductFeatures { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<ProductDiscount> ProductDiscounts { get; set; }
 
 
 

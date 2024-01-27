@@ -25,8 +25,10 @@ namespace MarketPlace.Domain.Models.Products
         #endregion
 
         #region relations
+        public ICollection<ProductSelectedCategory> ProductSelectedCategories { get; set; }
+        public ProductCategory Parent { get; set; }
 
-       
+
         #endregion
     }
 }

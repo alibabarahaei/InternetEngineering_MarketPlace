@@ -1,4 +1,5 @@
 ﻿using MarketPlace.Domain.Models.Common;
+using MarketPlace.Domain.Models.ProductOrder;
 using System.ComponentModel.DataAnnotations;
 
 namespace MarketPlace.Domain.Models.Products
@@ -25,6 +26,9 @@ namespace MarketPlace.Domain.Models.Products
 
         #region relations
 
+
+        public Product Product { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
 
         #endregion
     }
