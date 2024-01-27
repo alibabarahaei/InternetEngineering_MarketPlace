@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="FacadePattern\" />
     <Folder Include="Security%28Identity%29\" />
   </ItemGroup>
