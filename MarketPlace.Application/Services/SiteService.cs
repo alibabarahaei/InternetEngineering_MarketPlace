@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MarketPlace.Application.Services.Interfaces;
-using MarketPlace.DataLayer.Entities.Site;
-using MarketPlace.DataLayer.Repository;
+﻿using MarketPlace.Application.InterfaceServices;
+using MarketPlace.Domain.InterfaceRepository;
+using MarketPlace.Domain.Models.Site;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketPlace.Application.Services.Implementations
+namespace MarketPlace.Application.Services
 {
     public class SiteService : ISiteService
     {
