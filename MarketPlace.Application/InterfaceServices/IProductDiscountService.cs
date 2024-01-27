@@ -1,4 +1,7 @@
-﻿namespace MarketPlace.Application.InterfaceServices
+﻿using MarketPlace.Application.DTOs.Discount;
+using MarketPlace.Application.DTOs.ProductDiscount;
+
+namespace MarketPlace.Application.InterfaceServices
 {
     public interface IProductDiscountService : IAsyncDisposable
     {
