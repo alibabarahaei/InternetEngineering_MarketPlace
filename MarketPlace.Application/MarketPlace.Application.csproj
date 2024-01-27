@@ -7,10 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
     <Folder Include="Extensions\" />
     <Folder Include="FacadePattern\" />
-    <Folder Include="InterfaceServices\" />
     <Folder Include="Security%28Identity%29\" />
     <Folder Include="Services\" />
   </ItemGroup>
