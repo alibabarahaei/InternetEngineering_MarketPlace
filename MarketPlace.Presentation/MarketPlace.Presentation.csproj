@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\" />
-    <Folder Include="Areas\Seller\Controllers\" />
     <Folder Include="Areas\Seller\ViewComponents\" />
     <Folder Include="Areas\Seller\Views\" />
     <Folder Include="Areas\User\Controllers\" />
