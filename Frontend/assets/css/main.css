@@ -354,3 +354,8 @@ header.header-main{
     padding: 0 15px;
     margin-bottom: 0;
 }
+
+.header-main-nav ul.menu-ul li.menu-item{
+    padding: 0 6px;
+    display: inline-block;
+}
