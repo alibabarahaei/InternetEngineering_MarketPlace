@@ -10,7 +10,6 @@
     <Folder Include="Areas\Admin\Views\" />
     <Folder Include="Areas\Seller\ViewComponents\" />
     <Folder Include="Areas\Seller\Views\" />
-    <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\ViewComponents\" />
     <Folder Include="Areas\User\Views\" />
     <Folder Include="Http\" />
