@@ -349,10 +349,8 @@ header.header-main{
     border-top: 1px solid #f5f5f5;
 }
 
-
-
-
-
-
-
-
+.header-main-nav ul.menu-ul{
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 0;
+}
