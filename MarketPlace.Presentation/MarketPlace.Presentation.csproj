@@ -12,7 +12,6 @@
     <Folder Include="Areas\Seller\Views\" />
     <Folder Include="Areas\User\ViewComponents\" />
     <Folder Include="Areas\User\Views\" />
-    <Folder Include="Http\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
