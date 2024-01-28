@@ -402,3 +402,12 @@ header.header-main{
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+
+.header-main-nav ul.menu-ul li.menu-item:hover a.category-link{
+    color: #ff828b;
+    transition: .2s;
+}
+
+.header-main-nav ul.menu-ul li.menu-item:hover > a.current-link-menu::before {
+    width: 100%;
+}
