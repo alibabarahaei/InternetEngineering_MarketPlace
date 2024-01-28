@@ -1,4 +1,5 @@
-﻿using MarketPlace.Domain.Models.Contacts;
+﻿using MarketPlace.Application.DTOs.Paging;
+using MarketPlace.Domain.Models.Contacts;
 
 namespace MarketPlace.Application.DTOs.Contacts
 {
