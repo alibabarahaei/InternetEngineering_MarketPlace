@@ -359,3 +359,16 @@ header.header-main{
     padding: 0 6px;
     display: inline-block;
 }
+
+.header-main-nav ul.menu-ul li.menu-item a.current-link-menu{
+    color: #616161;
+    font-size: 14px;
+    transition: .2s;
+    position: relative;
+    padding: 22px 0;
+}
+
+.header-main-nav ul.menu-ul li.menu-item:hover a.current-link-menu{
+    color: #06d0e8;
+    transition: .2s;
+}
