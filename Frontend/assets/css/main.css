@@ -565,3 +565,33 @@ header.header-main{
     transition: all .3s ease-out;
     font-weight: 600;
 }
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li > ul.is-mega-menu-small-three{
+    width: 220px !important;
+    margin: 0;
+    list-style: none;
+    float: right;
+    position: absolute;
+    right: 219px;
+    top: 0;
+    z-index: 9999;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 0;
+    transition: all .2s,width 0s;
+    box-shadow: rgba(0,0,0,.1) 0 2px 5px;
+    border: 1px solid #ececec;
+    height: auto;
+    overflow: hidden;
+    transition: all 300ms ease-in;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li:hover ul.is-mega-menu-small-three{
+    transition: all 300ms ease-out;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
