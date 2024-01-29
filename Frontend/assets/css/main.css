@@ -595,3 +595,15 @@ header.header-main{
     visibility: visible;
     display: block;
 }
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li a i{
+    float: left;
+    line-height: 40px;
+    transition: all .3s ease;
+}
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li:hover i{
+    color: #06d0e8;
+    transform: rotate(-45deg);
+    transition: all .3s ease-out;
+}
