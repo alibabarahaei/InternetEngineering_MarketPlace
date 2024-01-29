@@ -487,3 +487,19 @@ header.header-main{
     display: block;
     line-height: 32px;
 }
+
+.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item > ul li.menu-mega-item-three a{
+    color: #666666;
+    font-size: 14px;
+    padding: 0 30px;
+    transition: all .4s ease-out;
+    font-weight: 300;
+    display: inline-block;
+}
+
+.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item > ul li.menu-mega-item-three:hover a{
+    color: #06d0e8;
+    padding: 0 40px;
+    transition: all .4s ease-out;
+    font-weight: 600;
+}
