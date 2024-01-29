@@ -541,3 +541,27 @@ header.header-main{
     opacity: 1;
     visibility: visible;
 }
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li{
+    position: relative;
+    text-align: right;
+    width: 100%;
+    display: block;
+    line-height: 35px;
+}
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li a{
+    color: #666666;
+    font-size: 14px;
+    padding: 0 25px;
+    transition: all .3s ease-out;
+    font-weight: 300;
+    display: block;
+}
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small li:hover > a{
+    color: #06d0e8;
+    padding-right: 35px;
+    transition: all .3s ease-out;
+    font-weight: 600;
+}
