@@ -736,3 +736,22 @@ header.header-main{
     border-bottom: 1px dashed #06d0e8;
     transition: all .2s ease-out;
 }
+
+.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item > ul{
+    width: 100%;
+    display: block;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    margin: 0!important;
+    box-shadow: none;
+    background: transparent;
+}
+
+.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item > ul li.menu-mega-item-three{
+    position: relative;
+    text-align: right;
+    width: 100%;
+    display: block;
+    line-height: 32px;
+}
