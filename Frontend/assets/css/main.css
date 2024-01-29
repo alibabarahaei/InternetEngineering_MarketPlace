@@ -681,77 +681,32 @@ header.header-main{
     color: #f35a7e;
 }
 
-.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu{
-    width: 1318px !important;
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart{
+    width: 250px !important;
     margin: 0;
     list-style: none;
     float: right;
     position: absolute;
-    right: 15px;
     z-index: 9999;
     background: #fff;
     border-radius: 20px;
-    padding: 10px;
+    padding: 10px 0;
     transition: all .2s,width 0s;
     box-shadow: rgba(0,0,0,.1) 0 2px 5px;
     border: 1px solid #ececec;
     height: auto;
+    left: 0;
+    top: 50px;
     overflow: hidden;
     transition: all .2s ease-out;
     opacity: 0;
     visibility: hidden;
-    display: none;
     margin-top: 5px;
 }
 
-.header-main-nav ul.menu-ul li.menu-item:hover > ul.is-mega-menu{
+.header-main-nav .divider-space-card .header-cart-basket:hover .widget-shopping-cart{
     transition: all .2s ease-out;
     opacity: 1;
     visibility: visible;
-    display: block;
-}
-
-.header-main-nav ul.menu-ul li[data-id]{
-    position: static;
-}
-
-.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item{
-    width: 20%;
-    float: right;
-    position: relative;
-    text-align: right;
-}
-
-.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item a.mega-menu-link{
-    color: #666;
-    font-weight: 500;
-    font-size: 14px;
-    margin-right: 15px;
-    transition: all .2s ease-out;
-    padding: 5px 0;
-}
-
-.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item a.mega-menu-link:hover{
-    color: #06d0e8;
-    border-bottom: 1px dashed #06d0e8;
-    transition: all .2s ease-out;
-}
-
-.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item > ul{
-    width: 100%;
-    display: block;
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    margin: 0!important;
-    box-shadow: none;
-    background: transparent;
-}
-
-.header-main-nav ul.menu-ul li.menu-item ul.is-mega-menu li.menu-mega-item > ul li.menu-mega-item-three{
-    position: relative;
-    text-align: right;
-    width: 100%;
-    display: block;
-    line-height: 32px;
 }
