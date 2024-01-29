@@ -503,3 +503,15 @@ header.header-main{
     transition: all .4s ease-out;
     font-weight: 600;
 }
+
+.bg-image{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+}
+
+.bg-image img{
+    max-width: 100%;
+    box-shadow: none !important;
+}
