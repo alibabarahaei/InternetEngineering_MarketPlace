@@ -1,4 +1,5 @@
-﻿using SixLabors.ImageSharp.Formats.Jpeg;
+﻿using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Processing;
 
 namespace MarketPlace.Application.Utilities

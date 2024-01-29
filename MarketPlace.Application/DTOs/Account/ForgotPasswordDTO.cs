@@ -2,7 +2,7 @@
 
 namespace MarketPlace.Application.DTOs.Account
 {
-    public class ForgotPasswordDTO : CaptchaViewModel
+    public class ForgotPasswordDTO 
     {
         [Display(Name = "تلفن همراه")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]

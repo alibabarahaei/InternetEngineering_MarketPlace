@@ -1,150 +1,171 @@
 ﻿using MarketPlace.Application.DTOs.Account;
+using MarketPlace.Application.Extensions;
 using MarketPlace.Application.InterfaceServices;
-using MarketPlace.Domain.Models.User;
-using Microsoft.AspNetCore.Identity;
+using MarketPlace.Application.Utilities;
+using MarketPlace.Domain.InterfaceRepository;
+using MarketPlace.Domain.Models.Account;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketPlace.Application.Services
 {
     public class UserService : IUserService
     {
-
-
         #region constructor
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IMessageSender _messageSender;
 
-        public UserService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager, IMessageSender messageSender)
+        private readonly IGenericRepository<User> _userRepository;
+        private readonly IPasswordHelper _passwordHelper;
+      
+
+        public UserService(IGenericRepository<User> userRepository, IPasswordHelper passwordHelper)
         {
-            _userManager = userManager;
-            _roleManager = roleManager;
-            _signInManager = signInManager;
-            _messageSender = messageSender;
+            _userRepository = userRepository;
+            _passwordHelper = passwordHelper;
+           
         }
+
         #endregion
 
+        #region account
 
+        public async Task<RegisterUserResult> RegisterUser(RegisterUserDTO register)
+        {
+            if (!await IsUserExistsByMobileNumber(register.Mobile))
+            {
+                var user = new User
+                {
+                    FirstName = register.FirstName,
+                    LastName = register.LastName,
+                    Mobile = register.Mobile,
+                    Password = _passwordHelper.EncodePasswordMd5(register.Password),
+                    MobileActiveCode = new Random().Next(10000, 999999).ToString(),
+                    EmailActiveCode = Guid.NewGuid().ToString("N")
+                };
 
+                await _userRepository.AddEntity(user);
+                await _userRepository.SaveChanges();
+                //await _smsService.SendVerificationSms(user.Mobile, user.MobileActiveCode);
+                return RegisterUserResult.Success;
+            }
+
+            return RegisterUserResult.MobileExists;
+        }
+
+        public async Task<bool> IsUserExistsByMobileNumber(string mobile)
+        {
+            return await _userRepository.GetQuery().AsQueryable().AnyAsync(s => s.Mobile == mobile);
+        }
+
+        public async Task<LoginUserResult> GetUserForLogin(LoginUserDTO login)
+        {
+            var user = await _userRepository.GetQuery().AsQueryable().SingleOrDefaultAsync(s => s.Mobile == login.Mobile);
+            if (user == null) return LoginUserResult.NotFound;
+            if (!user.IsMobileActive) return LoginUserResult.NotActivated;
+            if (user.Password != _passwordHelper.EncodePasswordMd5(login.Password)) return LoginUserResult.NotFound;
+            return LoginUserResult.Success;
+        }
+
+        public async Task<User> GetUserByMobile(string mobile)
+        {
+            return await _userRepository.GetQuery().AsQueryable().SingleOrDefaultAsync(s => s.Mobile == mobile);
+        }
+
+        public async Task<ForgotPasswordResult> RecoverUserPassword(ForgotPasswordDTO forgot)
+        {
+            var user = await _userRepository.GetQuery().SingleOrDefaultAsync(s => s.Mobile == forgot.Mobile);
+            if (user == null) return ForgotPasswordResult.NotFound;
+            var newPassword = new Random().Next(1000000, 999999999).ToString();
+            user.Password = _passwordHelper.EncodePasswordMd5(newPassword);
+            _userRepository.EditEntity(user);
+           
+            await _userRepository.SaveChanges();
+
+            return ForgotPasswordResult.Success;
+        }
+
+        public async Task<bool> ActivateMobile(ActivateMobileDTO activate)
+        {
+            var user = await _userRepository.GetQuery().AsQueryable()
+                .SingleOrDefaultAsync(s => s.Mobile == activate.Mobile);
+            if (user != null)
+            {
+                if (user.MobileActiveCode == activate.MobileActiveCode)
+                {
+                    user.IsMobileActive = true;
+                    user.MobileActiveCode = new Random().Next(1000000, 999999999).ToString();
+                    await _userRepository.SaveChanges();
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public async Task<bool> ChangeUserPassword(ChangePasswordDTO changePass, long currentUserId)
+        {
+            var user = await _userRepository.GetEntityById(currentUserId);
+            if (user != null)
+            {
+                var newPassword = _passwordHelper.EncodePasswordMd5(changePass.NewPassword);
+                if (newPassword != user.Password)
+                {
+                    user.Password = newPassword;
+                    _userRepository.EditEntity(user);
+                    await _userRepository.SaveChanges();
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public async Task<EditUserProfileDTO> GetProfileForEdit(long userId)
+        {
+            var user = await _userRepository.GetEntityById(userId);
+            if (user == null) return null;
+
+            return new EditUserProfileDTO
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Avatar = user.Avatar
+            };
+        }
+
+        public async Task<EditUserProfileResult> EditUserProfile(EditUserProfileDTO profile, long userId, IFormFile avatarImage)
+        {
+            var user = await _userRepository.GetEntityById(userId);
+            if (user == null) return EditUserProfileResult.NotFound;
+
+            if (user.IsBlocked) return EditUserProfileResult.IsBlocked;
+            if (!user.IsMobileActive) return EditUserProfileResult.IsNotActive;
+
+            user.FirstName = profile.FirstName;
+            user.LastName = profile.LastName;
+
+            if (avatarImage != null && avatarImage.IsImage())
+            {
+                var imageName = Guid.NewGuid().ToString("N") + Path.GetExtension(avatarImage.FileName);
+                avatarImage.AddImageToServer(imageName, PathExtension.UserAvatarOriginServer, 100, 100, PathExtension.UserAvatarThumbServer, user.Avatar);
+                user.Avatar = imageName;
+            }
+
+            _userRepository.EditEntity(user);
+            await _userRepository.SaveChanges();
+
+            return EditUserProfileResult.Success;
+        }
+
+        #endregion
 
         #region dispose
 
-
         public async ValueTask DisposeAsync()
         {
-            //  await _userManager.DisposeAsync()
+            await _userRepository.DisposeAsync();
         }
 
         #endregion
-
-
-        public async Task<IdentityResult> RegisterUserAsync(RegisterUserDTO registerUserDTO)
-        {
-            var user = new ApplicationUser()
-            {
-                UserName = registerUserDTO.UserName,
-                Email = registerUserDTO.Email,
-            };
-
-            return await _userManager.CreateAsync(user, registerUserDTO.Password);
-
-
-        }
-
-        public async Task<IdentityUser> IsUserNameInUseAsync(string userName)
-        {
-
-
-            return await _userManager.FindByNameAsync(userName);
-
-        }
-
-        public async Task<IdentityUser> IsEmailInUseAsync(string email)
-        {
-            return await _userManager.FindByEmailAsync(email);
-        }
-
-        public async Task<SignInResult> LoginUserAsync(LoginUserDTO loginUserDTO)
-        {
-            var result = await _signInManager.PasswordSignInAsync(loginUserDTO.UserName, loginUserDTO.Password, loginUserDTO.RememberMe, true);
-            return result;
-        }
-
-
-
-
-        public async Task LogOutUserAsync()
-        {
-            await _signInManager.SignOutAsync();
-        }
-
-        public async Task<string> GenerateEmailConfirmationTokenAsync(EmailConfirmationDTO emailConfirmationDTO)
-        {
-            var user = new ApplicationUser()
-            {
-                UserName = emailConfirmationDTO.UserName
-            };
-            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
-        }
-
-        public async Task<IdentityResult> EditProfileAsync(EditProfileDTO editProfileDTO)
-        {
-            var currentUser = await _userManager.GetUserAsync(editProfileDTO.User);
-            currentUser.FirstName = editProfileDTO.FirstName;
-            currentUser.LastName = editProfileDTO.LastName;
-            currentUser.PhoneNumber = editProfileDTO.PhoneNumber;
-
-
-            if (editProfileDTO.Gender != null)
-            {
-                currentUser.Gender = editProfileDTO.Gender;
-            }
-            else
-            {
-                currentUser.Gender = GenderTypes.Unknown;
-            }
-
-
-
-
-            if (editProfileDTO.ProfileImage != null && editProfileDTO.ProfileImage.IsImage())
-            {
-                var imageName = Guid.NewGuid().ToString("N") + Path.GetExtension(editProfileDTO.ProfileImage.FileName);
-                editProfileDTO.ProfileImage.AddImageToServer(imageName, SD.UserProfileOriginServer, 64, 64, SD.UserProfileThumbServer, currentUser.PathProfileImage);
-                currentUser.PathProfileImage = imageName;
-            }
-
-
-
-
-
-
-
-
-            return await _userManager.UpdateAsync(currentUser);
-        }
-
-        public async Task<ApplicationUser> GetUserAsync(GetUserDTO getuserDTO)
-        {
-            return await _userManager.GetUserAsync(getuserDTO.User);
-        }
-
-
-
-
-
-        public async Task<IdentityResult> ChangePasswordAsync(ChangepasswordDTO changepasswordDTO)
-        {
-
-            var user = await GetUserAsync(new GetUserDTO()
-            {
-                User = changepasswordDTO.User,
-            });
-
-
-            return await _userManager.ChangePasswordAsync(user, changepasswordDTO.CurrentPassword, changepasswordDTO.NewPassword);
-        }
-
-
     }
 }

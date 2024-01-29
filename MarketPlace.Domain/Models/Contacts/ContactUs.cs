@@ -1,6 +1,7 @@
 ﻿using MarketPlace.Domain.Models.Common;
 using System.ComponentModel.DataAnnotations;
-using MarketPlace.Domain.Models.User;
+using MarketPlace.Domain.Models.Account;
+
 
 namespace MarketPlace.Domain.Models.Contacts
 {
@@ -40,7 +41,7 @@ namespace MarketPlace.Domain.Models.Contacts
 
 
 
-        public ApplicationUser User { get; set; }
+        public User User { get; set; }
 
         #endregion
     }

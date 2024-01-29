@@ -14,4 +14,18 @@
     <Folder Include="Areas\User\Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts" Version="6.0.0-preview.6.21362.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MarketPlace.Application\MarketPlace.Application.csproj" />
+    <ProjectReference Include="..\MarketPlace.Domain\MarketPlace.Domain.csproj" />
+    <ProjectReference Include="..\MarketPlace.Infrastructure.EFCore\MarketPlace.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
 </Project>

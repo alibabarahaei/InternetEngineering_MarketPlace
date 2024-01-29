@@ -1,6 +1,7 @@
 ﻿using MarketPlace.Application.DTOs.Common;
 using MarketPlace.Application.DTOs.Paging;
 using MarketPlace.Application.DTOs.Products;
+using MarketPlace.Application.Extensions;
 using MarketPlace.Application.InterfaceServices;
 using MarketPlace.Application.Utilities;
 using MarketPlace.DataLayer.DTOs.Products;

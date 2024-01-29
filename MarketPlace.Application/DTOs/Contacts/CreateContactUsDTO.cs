@@ -2,7 +2,7 @@
 
 namespace MarketPlace.Application.DTOs.Contacts
 {
-    public class CreateContactUsDTO : CaptchaViewModel
+    public class CreateContactUsDTO 
     {
         [Display(Name = "ایمیل")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
