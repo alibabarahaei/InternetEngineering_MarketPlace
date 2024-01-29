@@ -515,3 +515,29 @@ header.header-main{
     max-width: 100%;
     box-shadow: none !important;
 }
+
+.header-main-nav ul.menu-ul li.menu-item > ul.is-mega-menu-small{
+    width: 220px !important;
+    margin: 0;
+    list-style: none;
+    float: right;
+    position: absolute;
+    z-index: 9999;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 0;
+    transition: all .2s,width 0s;
+    box-shadow: rgba(0,0,0,.1) 0 2px 5px;
+    border: 1px solid #ececec;
+    height: auto;
+    transition: all .2s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 5px;
+}
+
+.header-main-nav ul.menu-ul li:hover ul.is-mega-menu-small{
+    transition: all .2s ease-out;
+    opacity: 1;
+    visibility: visible;
+}
