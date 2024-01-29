@@ -756,3 +756,14 @@ header.header-main{
     display: none;
     transition: all 300ms ease;
 }
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart .widget-shopping-cart-content ul.product-list-widget li.mini-cart-item:hover a.mini-cart-item-close{
+    display: block;
+    background: #f1f1f1;
+    color: #4a4a4a;
+    transition: all 300ms ease;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart .widget-shopping-cart-content ul.product-list-widget li.mini-cart-item a.mini-cart-item-image img{
+    max-width: 100%;
+}
