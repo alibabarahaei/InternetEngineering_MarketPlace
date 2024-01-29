@@ -32,7 +32,7 @@ namespace MarketPlace.Application.DTOs.Products
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string Description { get; set; }
 
-        public Seller Seller { get; set; }
+        public Domain.Models.Store.Seller Seller { get; set; }
 
         public List<ProductGallery> ProductGalleries { get; set; }
 

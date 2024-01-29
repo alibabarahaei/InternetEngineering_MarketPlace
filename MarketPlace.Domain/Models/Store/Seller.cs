@@ -1,12 +1,7 @@
-﻿using MarketPlace.Domain.Models.Common;
+﻿using MarketPlace.Domain.Models.Account;
+using MarketPlace.Domain.Models.Common;
 using MarketPlace.Domain.Models.Wallet;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MarketPlace.Domain.Models.User;
 
 namespace MarketPlace.Domain.Models.Store
 {
@@ -50,7 +45,7 @@ namespace MarketPlace.Domain.Models.Store
 
         #region relations
 
-        public ApplicationUser User { get; set; }
+        public User User { get; set; }
         public ICollection<SellerWallet> SellerWallets { get; set; }
 
         #endregion

@@ -1,32 +1,86 @@
+using MarketPlace.Application.DTOs.Contacts;
+using MarketPlace.Application.InterfaceServices;
+using MarketPlace.Domain.Models.Site;
 using MarketPlace.Presentation.Models;
+using MarketPlace.Presentation.PresentationExtensions;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace MarketPlace.Presentation.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SiteBaseController
     {
-        private readonly ILogger<HomeController> _logger;
+        #region constructor
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IContactService _contactService;
+       
+        private readonly ISiteService _siteService;
+        private readonly IProductService _productService;
+
+        public HomeController(IContactService contactService,  ISiteService siteService, IProductService productService)
         {
-            _logger = logger;
+            _contactService = contactService;
+          
+            _siteService = siteService;
+            _productService = productService;
         }
 
-        public IActionResult Index()
+        #endregion
+
+        #region index
+
+        public async Task<IActionResult> Index()
+        {
+            ViewBag.banners = await _siteService
+                .GetSiteBannersByPlacement(new List<BannerPlacement>
+                {
+                    BannerPlacement.Home_1,
+                    BannerPlacement.Home_2,
+                    BannerPlacement.Home_3
+                });
+
+            ViewData["OffProducts"] = await _productService.GetAllOffProducts(12);
+
+            return View();
+        }
+
+        #endregion
+
+        #region contact us
+
+        [HttpGet("contact-us")]
+        public IActionResult ContactUs()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost("contact-us"), ValidateAntiForgeryToken]
+        public async Task<IActionResult> ContactUs(CreateContactUsDTO contact)
         {
-            return View();
+           
+
+            if (ModelState.IsValid)
+            {
+                var ip = HttpContext.GetUserIp();
+                await _contactService.CreateContactUs(contact, HttpContext.GetUserIp(), User.GetUserId());
+                TempData[SuccessMessage] = "???? ??? ?? ?????? ????? ??";
+                return RedirectToAction("ContactUs");
+            }
+
+            return View(contact);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        #endregion
+
+        #region about us
+
+        [HttpGet("about-us")]
+        public async Task<IActionResult> AboutUs()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var siteSetting = await _siteService.GetDefaultSiteSetting();
+            return View(siteSetting);
         }
+
+        #endregion
     }
 }

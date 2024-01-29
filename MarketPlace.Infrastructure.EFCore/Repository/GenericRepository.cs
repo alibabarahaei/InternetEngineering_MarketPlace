@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MarketPlace.Domain.InterfaceRepository;
+using MarketPlace.Domain.Models.Common;
+using MarketPlace.Infrastructure.EFCore.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace MarketPlace.Infrastructure.EFCore.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly MarketPlaceDbContext _context;
+        private readonly InternetEngineeringMarketPlaceDbContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public GenericRepository(MarketPlaceDbContext context)
+        public GenericRepository(InternetEngineeringMarketPlaceDbContext context)
         {
             _context = context;
             this._dbSet = _context.Set<TEntity>();

@@ -2,7 +2,7 @@
 
 namespace MarketPlace.Application.DTOs.Account
 {
-    public class ActivateMobileDTO : CaptchaViewModel
+    public class ActivateMobileDTO 
     {
         [Display(Name = "تلفن همراه")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]

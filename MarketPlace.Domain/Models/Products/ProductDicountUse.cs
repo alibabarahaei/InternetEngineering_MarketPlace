@@ -1,5 +1,5 @@
-﻿using MarketPlace.Domain.Models.Common;
-using MarketPlace.Domain.Models.User;
+﻿using MarketPlace.Domain.Models.Account;
+using MarketPlace.Domain.Models.Common;
 
 namespace MarketPlace.Domain.Models.Products
 {
@@ -15,7 +15,7 @@ namespace MarketPlace.Domain.Models.Products
 
         #region relations
 
-        public ApplicationUser User { get; set; }
+        public User User { get; set; }
         public ProductDiscount ProductDiscount { get; set; }
 
         #endregion
