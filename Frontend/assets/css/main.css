@@ -813,3 +813,27 @@ header.header-main{
     line-height: 40px;
 
 }
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart .widget-shopping-cart-content .mini-card-button a.view-card{
+    font-size: 13px;
+    color: #666;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart .widget-shopping-cart-content .mini-card-button a.view-card:hover{
+    color: #00bfd6;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart .widget-shopping-cart-content .mini-card-button a.card-checkout{
+    padding: 7px 20px;
+    border-radius: 50px;
+    background: #eee;
+    color: #666;
+    font-size: 12px;
+    transition: all 300ms ease;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .widget-shopping-cart .widget-shopping-cart-content .mini-card-button a.card-checkout:hover{
+    background: #00bfd6;
+    transition: all 300ms ease;
+    color: #fff;
+}
