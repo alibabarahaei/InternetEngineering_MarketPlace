@@ -662,3 +662,21 @@ header.header-main{
     font-size: 12px;
     opacity: 0.8;
 }
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box span.count-cart{
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    color: #00bfd6;
+    position: absolute;
+    left: 10px;
+    line-height: 20px;
+    text-align: center;
+    top: 10px;
+    border-radius: 50px;
+    font-size: 12px;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box span.count-bg{
+    color: #f35a7e;
+}
