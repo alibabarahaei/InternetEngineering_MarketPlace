@@ -619,3 +619,46 @@ header.header-main{
     width: 100%;
     position: relative;
 }
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box{
+    height: 50px;
+    background: #00bfd6;
+    color: #fff;
+    padding: 0;
+    border-radius: 20px;
+    width: 100%;
+    display: block;
+    margin-top: 4px;
+    line-height: 50px;
+    overflow: hidden;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box-bg{
+    background-color: #f35a7e;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box span.icon-cart{
+    float: right;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 25px;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box span.title-cart{
+    font-size: 14px;
+    display: block;
+    z-index: 1;
+    position: relative;
+    text-align: right;
+    line-height: 25px;
+}
+
+.header-main-nav .divider-space-card .header-cart-basket .cart-basket-box span.price-cart{
+    display: block;
+    z-index: 1;
+    position: relative;
+    text-align: right;
+    line-height: 2;
+    font-size: 12px;
+    opacity: 0.8;
+}
