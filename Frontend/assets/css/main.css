@@ -871,3 +871,29 @@ header.header-main{
     background: #fff;
     border-radius: 20px;
 }
+
+.page-account-box .ds-userlogin .account-box .account-box-headline{
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #f5f5ff;
+    overflow: hidden;
+}
+
+.page-account-box .ds-userlogin .account-box .account-box-headline a{
+    padding: 5px 0;
+    width: 50%;
+    text-align: right;
+    color: #999;
+    float: right;
+    line-height: 25px;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.page-account-box .ds-userlogin .account-box .account-box-headline a.active{
+    background: #fff;
+    color: #00bfd6 !important;
+}
