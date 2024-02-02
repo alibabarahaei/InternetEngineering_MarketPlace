@@ -2,7 +2,7 @@
 
 namespace MarketPlace.Presentation.Areas.Seller.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : SellerBaseController
     {
         public IActionResult Index()
         {
