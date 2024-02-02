@@ -1,6 +1,6 @@
-﻿@using MarketPlace.DataLayer.Entities.Products
-@using MarketPlace.Application.Utils
-@model MarketPlace.DataLayer.DTOs.Products.EditProductDTO
+﻿@using MarketPlace.Domain.Models.Products
+@using MarketPlace.Application.Utilities
+@model MarketPlace.Application.DTOs.Products.EditProductDTO
 @{
     ViewData["Title"] = "ویرایش " + Model.Title;
     var categories = ViewBag.Categories as List<ProductCategory>;
