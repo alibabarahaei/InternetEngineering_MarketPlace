@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MarketPlace.Presentation.Areas.User.Controllers
 {
+    [Authorize]
+    [Area("User")]
+    [Route("user")]
     public class UserBaseController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        protected string SuccessMessage = "SuccessMessage";
+        protected string WarningMessage = "WarningMessage";
+        protected string InfoMessage = "InfoMessage";
+        protected string ErrorMessage = "ErrorMessage";
     }
 }
