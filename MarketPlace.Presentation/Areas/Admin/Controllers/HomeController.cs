@@ -2,11 +2,15 @@
 
 namespace MarketPlace.Presentation.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AdminBaseController
     {
+        #region index
+
         public IActionResult Index()
         {
             return View();
         }
+
+        #endregion
     }
 }
