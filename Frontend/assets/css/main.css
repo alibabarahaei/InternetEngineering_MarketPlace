@@ -1163,3 +1163,35 @@ body.light .progress-wrap::after {
 body.light .progress-wrap svg.progress-circle path {
 	stroke: var(--black-blue);
 }
+
+/* welcome----------------------- */
+.account-box-content .user-account-welcome{
+    text-align: center;
+    margin: 20px auto;
+}
+
+.account-box-content .made-account{
+    margin-top: 60px;
+    text-align: center;  
+    margin-bottom: 20px;
+
+}
+
+.account-box-content .made-account h2{
+    font-size: 14px;
+    color: #848484;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.account-box-content .made-account p{
+    padding: 10px 15px;
+    color: #626161;
+    line-height: 25px;
+    margin-top: 25px;
+    font-size: 12px;
+    background: #fafff0;
+    border: 1px solid #ddfddb;
+    border-radius: 20px;
+}
+/* welcome----------------------- */
