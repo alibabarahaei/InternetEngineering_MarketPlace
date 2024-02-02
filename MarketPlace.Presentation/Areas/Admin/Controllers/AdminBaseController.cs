@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MarketPlace.Presentation.Areas.Admin.Controllers
 {
+    [Authorize]
+    [Area("Admin")]
     public class AdminBaseController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        protected string SuccessMessage = "SuccessMessage";
+        protected string WarningMessage = "WarningMessage";
+        protected string InfoMessage = "InfoMessage";
+        protected string ErrorMessage = "ErrorMessage";
     }
 }
