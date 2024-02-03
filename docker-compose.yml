@@ -7,10 +7,10 @@ services:
       context: .
       dockerfile: MarketPlace.Presentation/Dockerfile
     depends_on:
-            - SqlServerDb1
+            - sqlserverdb1
     ports:
             - 8001:80 
-  SqlServerDb1:
+  sqlserverdb1:
     container_name: SqlServerContainer
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
