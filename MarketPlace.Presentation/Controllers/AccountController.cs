@@ -47,7 +47,7 @@ namespace MarketPlace.Presentation.Controllers
                     case RegisterUserResult.Success:
                         TempData[SuccessMessage] = "ثبت نام شما با موفقیت انجام شد";
                         TempData[InfoMessage] = "کد تایید تلفن همراه برای شما ارسال شد";
-                        return RedirectToAction("ActivateMobile", "Account", new { mobile = register.Mobile });
+                        return RedirectToAction("Login", "Account");
                 }
             }
 

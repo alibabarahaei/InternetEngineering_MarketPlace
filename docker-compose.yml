@@ -7,14 +7,14 @@ services:
       context: .
       dockerfile: MarketPlace.Presentation/Dockerfile
     depends_on:
-            - SqlServerDb
+            - SqlServerDb1
     ports:
             - 8001:80 
-  SqlServerDb:
+  SqlServerDb1:
     container_name: SqlServerContainer
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
             - 8002:1433
     environment:
             - ACCEPT_EULA=Y
-            - MSSQL_SA_PASSWORD=Aa12345678  
+            - MSSQL_SA_PASSWORD=Aa12345678

@@ -24,4 +24,8 @@
     <ProjectReference Include="..\MarketPlace.Infrastructure.EFCore\MarketPlace.Infrastructure.EFCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Auth\" />
+  </ItemGroup>
+
 </Project>

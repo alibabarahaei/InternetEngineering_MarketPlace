@@ -4,7 +4,7 @@
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
     <DockerPublishLocally>False</DockerPublishLocally>
-    <ProjectGuid>fa6028b0-6f84-4026-ab2e-32f2accf05ff</ProjectGuid>
+    <ProjectGuid>00e301a8-9101-4f50-8996-ad886b75b33b</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>marketplace.presentation</DockerServiceName>

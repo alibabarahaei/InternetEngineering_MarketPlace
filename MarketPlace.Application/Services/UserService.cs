@@ -39,7 +39,9 @@ namespace MarketPlace.Application.Services
                     Mobile = register.Mobile,
                     Password = _passwordHelper.EncodePasswordMd5(register.Password),
                     MobileActiveCode = new Random().Next(10000, 999999).ToString(),
-                    EmailActiveCode = Guid.NewGuid().ToString("N")
+                    EmailActiveCode = Guid.NewGuid().ToString("N"),
+                    IsMobileActive = true,
+                    IsEmailActive = true
                 };
 
                 await _userRepository.AddEntity(user);

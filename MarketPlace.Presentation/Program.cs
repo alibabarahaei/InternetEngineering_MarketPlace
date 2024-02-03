@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using SixLabors.ImageSharp;
+using System;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 
@@ -37,9 +38,9 @@ builder.Services.AddScoped<IProductDiscountService, ProductDiscountService>();
 
 
 #region data protection
-
+string pathToCryptoKeys = Path.Combine(builder.Environment.ContentRootPath, "Auth");
 builder.Services.AddDataProtection()
-    .PersistKeysToFileSystem(new DirectoryInfo(Directory.GetCurrentDirectory() + "\\wwwroot\\Auth\\"))
+    .PersistKeysToFileSystem(new System.IO.DirectoryInfo(pathToCryptoKeys))
     .SetApplicationName("MarketPlaceProject")
     .SetDefaultKeyLifetime(TimeSpan.FromDays(30));
 
