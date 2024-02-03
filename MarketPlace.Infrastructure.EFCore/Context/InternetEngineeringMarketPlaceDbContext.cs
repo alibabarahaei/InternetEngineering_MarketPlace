@@ -7,12 +7,32 @@ using MarketPlace.Domain.Models.Site;
 using MarketPlace.Domain.Models.Store;
 using MarketPlace.Domain.Models.Wallet;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace MarketPlace.Infrastructure.EFCore.Context
 {
     public class InternetEngineeringMarketPlaceDbContext : DbContext
     {
-        public InternetEngineeringMarketPlaceDbContext(DbContextOptions<InternetEngineeringMarketPlaceDbContext> options) : base(options) { }
+        public InternetEngineeringMarketPlaceDbContext(
+            DbContextOptions<InternetEngineeringMarketPlaceDbContext> options) : base(options)
+        {
+            try
+            {
+                var databaseCreator = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
+                if (databaseCreator != null)
+                {
+                    if (!databaseCreator.CanConnect())
+                        databaseCreator.Create();
+                    if (!databaseCreator.HasTables())
+                        databaseCreator.CreateTables();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
 
         #region account
 

@@ -1,4 +1,5 @@
-﻿using MarketPlace.Domain.Models.Site;
+﻿using MarketPlace.Application.DTOs.Site;
+using MarketPlace.Domain.Models.Site;
 
 namespace MarketPlace.Application.InterfaceServices
 {
@@ -7,6 +8,7 @@ namespace MarketPlace.Application.InterfaceServices
         #region site settings
 
         Task<SiteSetting> GetDefaultSiteSetting();
+        void AddSiteSetting(CreateSiteSettingDTO createSiteSettingDto);
 
         #endregion
 

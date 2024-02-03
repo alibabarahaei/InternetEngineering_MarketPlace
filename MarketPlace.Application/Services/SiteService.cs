@@ -1,4 +1,5 @@
-﻿using MarketPlace.Application.InterfaceServices;
+﻿using MarketPlace.Application.DTOs.Site;
+using MarketPlace.Application.InterfaceServices;
 using MarketPlace.Domain.InterfaceRepository;
 using MarketPlace.Domain.Models.Site;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,23 @@ namespace MarketPlace.Application.Services
         {
             return await _siteSettingRepository.GetQuery().AsQueryable()
                 .SingleOrDefaultAsync(s => s.IsDefault && !s.IsDelete);
+        }
+
+        public void AddSiteSetting(CreateSiteSettingDTO createSiteSettingDto)
+        {
+            _siteSettingRepository.AddEntity(new SiteSetting()
+            {
+                AboutUs = createSiteSettingDto.AboutUs,
+                Address = createSiteSettingDto.Address,
+                CopyRight = createSiteSettingDto.CopyRight,
+                Email = createSiteSettingDto.Email,
+                FooterText = createSiteSettingDto.FooterText,
+                IsDefault = createSiteSettingDto.IsDefault,
+                MapScript = createSiteSettingDto.MapScript,
+                Phone = createSiteSettingDto.Phone,
+                Mobile = createSiteSettingDto.Mobile
+            });
+            _siteSettingRepository.SaveChanges();
         }
 
         #endregion

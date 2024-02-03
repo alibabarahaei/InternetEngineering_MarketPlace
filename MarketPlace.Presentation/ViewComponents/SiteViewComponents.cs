@@ -1,4 +1,5 @@
 ﻿using MarketPlace.Application.InterfaceServices;
+using MarketPlace.Domain.Models.Site;
 using MarketPlace.Presentation.PresentationExtensions;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,18 @@ namespace MarketPlace.Web.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             ViewBag.siteSetting = await _siteService.GetDefaultSiteSetting();
+            if (ViewBag.siteSetting == null)
+            {
+                ViewBag.siteSetting = new SiteSetting()
+                {
+                    Mobile = "09330807786",
+                    IsDefault = true,
+                    Phone = "09330807786",
+                    AboutUs = "فروشگاه",
+                    Address = "دانشگاه شاهد",
+                    Email = "alibabarahaei@gmail.com",
+                };
+            }
             ViewBag.user = await _userService.GetUserByMobile(User.Identity.Name);
             if (User.Identity.IsAuthenticated)
             {
@@ -49,8 +62,20 @@ namespace MarketPlace.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+            
             ViewBag.siteSetting = await _siteService.GetDefaultSiteSetting();
-
+            if (ViewBag.siteSetting == null)
+            {
+                ViewBag.siteSetting = new SiteSetting()
+                {
+                    Mobile = "09330807786",
+                    IsDefault = true,
+                    Phone = "09330807786",
+                    AboutUs = "فروشگاه",
+                    Address = "دانشگاه شاهد",
+                    Email = "alibabarahaei@gmail.com",
+                };
+            }
             return View("SiteFooter");
         }
     }
