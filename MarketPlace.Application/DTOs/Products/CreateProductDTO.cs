@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using MarketPlace.DataLayer.DTOs.Products;
+using MarketPlace.Application.DTOs.Products;
 
 namespace MarketPlace.Application.DTOs.Products
 {

@@ -6,13 +6,11 @@ using MarketPlace.Domain.Models.Products;
 using MarketPlace.Domain.Models.Site;
 using MarketPlace.Domain.Models.Store;
 using MarketPlace.Domain.Models.Wallet;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MarketPlace.Infrastructure.EFCore.Context
 {
-   public class InternetEngineeringMarketPlaceDbContext : DbContext
+    public class InternetEngineeringMarketPlaceDbContext : DbContext
     {
         public InternetEngineeringMarketPlaceDbContext(DbContextOptions<InternetEngineeringMarketPlaceDbContext> options) : base(options) { }
 

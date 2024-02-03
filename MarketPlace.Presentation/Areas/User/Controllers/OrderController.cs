@@ -16,13 +16,13 @@ namespace MarketPlace.Presentation.Areas.User.Controllers
 
         private readonly IOrderService _orderService;
         private readonly IUserService _userService;
-        private readonly IPaymentService _paymentService;
+        //private readonly IPaymentService _paymentService;
 
-        public OrderController(IOrderService orderService, IUserService userService, IPaymentService paymentService)
+        public OrderController(IOrderService orderService, IUserService userService/*, IPaymentService paymentService*/)
         {
             _orderService = orderService;
             _userService = userService;
-            _paymentService = paymentService;
+            //_paymentService = paymentService;
         }
 
         #endregion
@@ -80,18 +80,18 @@ namespace MarketPlace.Presentation.Areas.User.Controllers
 
             string redirectUrl = "";
 
-            var status = _paymentService.CreatePaymentRequest(
-                null,
-                openOrderAmount,
-                "تکمیل فرایند خرید از سایت",
-                callbackUrl,
-               ref redirectUrl);
+            //var status = _paymentService.CreatePaymentRequest(
+            //    null,
+            //    openOrderAmount,
+            //    "تکمیل فرایند خرید از سایت",
+            //    callbackUrl,
+            //   ref redirectUrl);
 
-            if (status == PaymentStatus.St100)
-            {
-                return Redirect(redirectUrl);
-            }
-
+            //if (status == PaymentStatus.St100)
+            //{
+            //    return Redirect(redirectUrl);
+            //}
+            return Redirect(redirectUrl);
             return RedirectToAction("UserOpenOrder");
         }
 
@@ -103,29 +103,29 @@ namespace MarketPlace.Presentation.Areas.User.Controllers
         [HttpGet("payment-result", Name = "ZarinpalPaymentResult")]
         public async Task<IActionResult> CallBackZarinPal()
         {
-            string authority = _paymentService.GetAuthorityCodeFromCallback(HttpContext);
-            if (authority == "")
-            {
-                TempData[WarningMessage] = "عملیات پرداخت با شکست مواجه شد";
-                return View();
-            }
+            //string authority = _paymentService.GetAuthorityCodeFromCallback(HttpContext);
+            //if (authority == "")
+            //{
+            //    TempData[WarningMessage] = "عملیات پرداخت با شکست مواجه شد";
+            //    return View();
+            //}
 
             var openOrderAmount = await _orderService.GetTotalOrderPriceForPayment(User.GetUserId());
             long refId = 0;
-            var res = _paymentService.PaymentVerification(null, authority, openOrderAmount, ref refId);
-            if (res == PaymentStatus.St100)
-            {
-                TempData[SuccessMessage] = "پرداخت شما با موفقیت انجام شد";
-                TempData[InfoMessage] = "کد پیگیری شما : " + refId;
-                await _orderService.PayOrderProductPriceToSeller(User.GetUserId(), refId);
+            //var res = _paymentService.PaymentVerification(null, authority, openOrderAmount, ref refId);
+            //if (res == PaymentStatus.St100)
+            //{
+            //    TempData[SuccessMessage] = "پرداخت شما با موفقیت انجام شد";
+            //    TempData[InfoMessage] = "کد پیگیری شما : " + refId;
+            //    await _orderService.PayOrderProductPriceToSeller(User.GetUserId(), refId);
 
-                return View();
-            }
-            else
-            {
-                TempData[WarningMessage] = "عملیات پرداخت با خطا مواجه شد";
-            }
-
+            //    return View();
+            //}
+            //else
+            //{
+            //    TempData[WarningMessage] = "عملیات پرداخت با خطا مواجه شد";
+            //}
+            await _orderService.PayOrderProductPriceToSeller(User.GetUserId(), refId);
             return View();
         }
 

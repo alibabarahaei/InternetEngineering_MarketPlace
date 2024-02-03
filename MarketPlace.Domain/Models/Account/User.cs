@@ -13,7 +13,7 @@ namespace MarketPlace.Domain.Models.Account
         [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد")]
         [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نمی باشد")]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [MaxLength(100, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد")]
@@ -51,7 +51,7 @@ namespace MarketPlace.Domain.Models.Account
 
         [Display(Name = "تصویر آواتار")]
         [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد")]
-        public string Avatar { get; set; }
+        public string? Avatar { get; set; }
 
         [Display(Name = "بلاک شده / نشده")]
         public bool IsBlocked { get; set; }

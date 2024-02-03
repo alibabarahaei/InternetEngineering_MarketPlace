@@ -23,7 +23,7 @@ namespace MarketPlace.Domain.Models.Store
 
         [Display(Name = "تلفن همراه")]
         [MaxLength(50, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد")]
-        public string Mobile { get; set; }
+        public string? Mobile { get; set; }
 
         [Display(Name = "آدرس")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
@@ -31,13 +31,13 @@ namespace MarketPlace.Domain.Models.Store
         public string Address { get; set; }
 
         [Display(Name = "توضیحات فروشگاه")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Display(Name = "یادداشت های ادمین")]
-        public string AdminDescription { get; set; }
+        public string? AdminDescription { get; set; }
 
         [Display(Name = "توضیحات تایید / عدم تایید اطلاعات")]
-        public string StoreAcceptanceDescription { get; set; }
+        public string? StoreAcceptanceDescription { get; set; }
 
         public StoreAcceptanceState StoreAcceptanceState { get; set; }
 

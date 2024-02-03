@@ -34,7 +34,7 @@ namespace MarketPlace.Domain.Models.Products
         public string Description { get; set; }
 
         [Display(Name = "پیام تایید/عدم تایید")]
-        public string ProductAcceptOrRejectDescription { get; set; }
+        public string? ProductAcceptOrRejectDescription { get; set; }
 
         [Display(Name = "فعال / غیرفعال")]
         public bool IsActive { get; set; }

@@ -1,10 +1,5 @@
 ﻿using MarketPlace.Domain.Models.Common;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarketPlace.Domain.Models.ProductOrder
 {
@@ -20,10 +15,10 @@ namespace MarketPlace.Domain.Models.ProductOrder
 
         [Display(Name = "کد پیگیری")]
         [MaxLength(300, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        public string TracingCode { get; set; }
+        public string? TracingCode { get; set; }
 
         [Display(Name = "کد پیگیری")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         #endregion
 

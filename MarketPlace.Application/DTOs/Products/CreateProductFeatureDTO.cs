@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MarketPlace.DataLayer.DTOs.Products
+namespace MarketPlace.Application.DTOs.Products
 {
     public class CreateProductFeatureDTO
     {

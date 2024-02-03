@@ -4,7 +4,7 @@ using MarketPlace.Application.DTOs.Products;
 using MarketPlace.Application.Extensions;
 using MarketPlace.Application.InterfaceServices;
 using MarketPlace.Application.Utilities;
-using MarketPlace.DataLayer.DTOs.Products;
+using MarketPlace.Application.DTOs.Products;
 using MarketPlace.Domain.InterfaceRepository;
 using MarketPlace.Domain.Models.Products;
 using Microsoft.AspNetCore.Http;

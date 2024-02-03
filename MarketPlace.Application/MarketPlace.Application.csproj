@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="FacadePattern\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="LazZiya.ImageResize" Version="4.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
@@ -21,6 +17,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MarketPlace.Domain\MarketPlace.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="FacadePattern\" />
   </ItemGroup>
 
 </Project>

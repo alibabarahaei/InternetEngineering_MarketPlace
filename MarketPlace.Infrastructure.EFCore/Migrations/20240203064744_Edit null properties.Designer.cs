@@ -4,6 +4,7 @@ using MarketPlace.Infrastructure.EFCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketPlace.Infrastructure.EFCore.Migrations
 {
     [DbContext(typeof(InternetEngineeringMarketPlaceDbContext))]
-    partial class InternetEngineeringMarketPlaceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240203064744_Edit null properties")]
+    partial class Editnullproperties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

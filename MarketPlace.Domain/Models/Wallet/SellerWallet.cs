@@ -21,7 +21,7 @@ namespace MarketPlace.Domain.Models.Wallet
 
         [Display(Name = "توضیحات")]
         [MaxLength(300, ErrorMessage = "{0} نمیتواند بیشتر از {1} کاراکتر باشد")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         #endregion
 

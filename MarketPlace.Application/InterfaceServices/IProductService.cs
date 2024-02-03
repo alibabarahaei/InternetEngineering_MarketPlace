@@ -1,6 +1,6 @@
 ﻿using MarketPlace.Application.DTOs.Common;
 using MarketPlace.Application.DTOs.Products;
-using MarketPlace.DataLayer.DTOs.Products;
+using MarketPlace.Application.DTOs.Products;
 using MarketPlace.Domain.Models.Products;
 using Microsoft.AspNetCore.Http;
 

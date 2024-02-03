@@ -1,6 +1,5 @@
 ﻿using MarketPlace.Application.DTOs.Account;
 using MarketPlace.Application.InterfaceServices;
-using MarketPlace.Presentation.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
