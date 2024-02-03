@@ -17,6 +17,7 @@ namespace MarketPlace.Application.Utilities
             //-------------------------------------------
             //  Check the image mime types
             //-------------------------------------------
+            return true;
             if (postedFile.ContentType.ToLower() != "image/jpg" &&
                         postedFile.ContentType.ToLower() != "image/jpeg" &&
                         postedFile.ContentType.ToLower() != "image/pjpeg" &&

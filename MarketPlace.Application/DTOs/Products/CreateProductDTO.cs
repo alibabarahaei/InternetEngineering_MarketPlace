@@ -27,7 +27,7 @@ namespace MarketPlace.Application.DTOs.Products
 
         public List<CreateProductColorDTO> ProductColors { get; set; }
 
-        public List<CreateProductFeatureDTO> ProductFeatures { get; set; }
+        public List<CreateProductFeatureDTO>? ProductFeatures { get; set; }
 
         public List<long> SelectedCategories { get; set; }
     }

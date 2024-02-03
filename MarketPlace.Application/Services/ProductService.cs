@@ -237,12 +237,9 @@ namespace MarketPlace.Application.Services
                     EF.Functions.Like(s.Title, $"%{productName}%")).ToListAsync();
         }
 
-        public async Task<List<ProductDiscount>> GetAllOffProducts(int take)
+        public async Task<List<Product>> GetAllOffProducts(int take)
         {
-            return await _prodductDiscountRepository.GetQuery().AsQueryable()
-                .Include(s => s.Product)
-                .Where(s => s.ExpireDate >= DateTime.Now)
-                .OrderByDescending(s => s.ExpireDate)
+            return await _productRepository.GetQuery().AsQueryable()
                 .Skip(0)
                 .Take(take)
                 .Distinct()
@@ -255,7 +252,7 @@ namespace MarketPlace.Application.Services
                 .Include(s => s.ProductSelectedCategories)
                 .ThenInclude(s => s.ProductCategory)
                 .AsQueryable();
-
+            
             var expensiveProduct = await query.OrderByDescending(s => s.Price).FirstOrDefaultAsync();
             filter.FilterMaxPrice = expensiveProduct.Price;
 
@@ -299,7 +296,7 @@ namespace MarketPlace.Application.Services
             }
 
             #endregion
-
+       
             #region filter
 
             if (!string.IsNullOrEmpty(filter.ProductTitle))
@@ -310,20 +307,24 @@ namespace MarketPlace.Application.Services
 
             if (filter.SelectedMaxPrice == 0) filter.SelectedMaxPrice = expensiveProduct.Price;
 
-            query = query.Where(s => s.Price >= filter.SelectedMinPrice);
-            query = query.Where(s => s.Price <= filter.SelectedMaxPrice);
+            if (filter.SelectedMinPrice!=null&& filter.SelectedMaxPrice!=null)
+            {
+                query = query.Where(s => s.Price >= filter.SelectedMinPrice);
+                query = query.Where(s => s.Price <= filter.SelectedMaxPrice);
+            }
+            
 
             if (!string.IsNullOrEmpty(filter.Category))
                 query = query.Where(s =>
                     s.ProductSelectedCategories.Any(f => f.ProductCategory.UrlName == filter.Category));
 
             #endregion
-
+            
             #region paging
 
             var pager = Pager.Build(filter.PageId, await query.CountAsync(), filter.TakeEntity, filter.HowManyShowPageAfterAndBefore);
             var allEntities = await query.Paging(pager).ToListAsync();
-
+            var test3 = query.ToList();
             #endregion
 
             return filter.SetProducts(allEntities).SetPaging(pager);

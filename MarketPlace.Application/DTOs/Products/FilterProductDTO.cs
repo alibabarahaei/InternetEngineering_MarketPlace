@@ -16,22 +16,22 @@ namespace MarketPlace.Application.DTOs.Products
         #endregion
 
         #region properteis
-
-        public string ProductTitle { get; set; }
-
-        public string Category { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        public string? ProductTitle { get; set; }
+        [Required(AllowEmptyStrings = false)]
+        public string? Category { get; set; }
 
         public long? SellerId { get; set; }
 
-        public int FilterMinPrice { get; set; }
+        public int? FilterMinPrice { get; set; }
 
-        public int FilterMaxPrice { get; set; }
+        public int? FilterMaxPrice { get; set; }
 
-        public int SelectedMinPrice { get; set; }
+        public int? SelectedMinPrice { get; set; }
 
-        public int SelectedMaxPrice { get; set; }
+        public int? SelectedMaxPrice { get; set; }
 
-        public int PriceStep { get; set; } = 100000;
+        public int? PriceStep { get; set; } = 100000;
 
         public FilterProductState FilterProductState { get; set; }
 

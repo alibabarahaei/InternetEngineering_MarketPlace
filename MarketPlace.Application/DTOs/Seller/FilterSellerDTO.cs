@@ -8,10 +8,10 @@ namespace MarketPlace.Application.DTOs.Seller
         #region properties
 
         public long? UserId { get; set; }
-        public string StoreName { get; set; }
-        public string Phone { get; set; }
-        public string Mobile { get; set; }
-        public string Address { get; set; }
+        public string? StoreName { get; set; }
+        public string? Phone { get; set; }
+        public string? Mobile { get; set; }
+        public string? Address { get; set; }
         public FilterSellerState State { get; set; }
 
         public List<Domain.Models.Store.Seller> Sellers { get; set; }

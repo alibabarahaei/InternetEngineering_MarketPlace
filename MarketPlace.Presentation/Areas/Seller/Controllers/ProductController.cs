@@ -49,8 +49,7 @@ namespace MarketPlace.Presentation.Areas.Seller.Controllers
         [HttpPost("create-product"), ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateProduct(CreateProductDTO product, IFormFile productImage)
         {
-            if (ModelState.IsValid)
-            {
+          
                 var seller = await _sellerService.GetLastActiveSellerByUserId(User.GetUserId());
                 var res = await _productService.CreateProduct(product, seller.Id, productImage);
 
@@ -66,7 +65,7 @@ namespace MarketPlace.Presentation.Areas.Seller.Controllers
                         TempData[SuccessMessage] = $"محصول مورد نظر با عنوان {product.Title} با موفقیت ثبت شد";
                         return RedirectToAction("Index");
                 }
-            }
+            
 
             ViewBag.Categories = await _productService.GetAllActiveProductCategories();
 

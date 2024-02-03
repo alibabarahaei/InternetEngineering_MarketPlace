@@ -33,6 +33,7 @@ namespace MarketPlace.Web.ViewComponents
                     AboutUs = "فروشگاه",
                     Address = "دانشگاه شاهد",
                     Email = "alibabarahaei@gmail.com",
+                    
                 };
             }
             ViewBag.user = await _userService.GetUserByMobile(User.Identity.Name);

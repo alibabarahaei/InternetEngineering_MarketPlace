@@ -5,7 +5,7 @@
 @{
     ViewData["Title"] = "صفحه ی اصلی";
     var banners = ViewBag.banners as List<SiteBanner>;
-    var offProducts = ViewData["OffProducts"] as List<ProductDiscount>;
+    var offProducts = ViewData["OffProducts"] as List<Product>;
 }
 
 
@@ -104,11 +104,11 @@
                     <article class="single_product">
                         <figure>
                             <div class="product_thumb">
-                                <a class="primary_img" asp-controller="Product" asp-action="ProductDetail" asp-route-productId="@discount.ProductId" asp-route-title="@discount.Product.Title.FixTextForUrl()">
-                                    <img src="@(PathExtension.ProductImage + discount.Product.ImageName)" alt="">
+                                <a class="primary_img" asp-controller="Product" asp-action="ProductDetail" asp-route-productId="@discount.Id" asp-route-title="@discount.Title.FixTextForUrl()">
+                                    <img src="@(PathExtension.ProductImage + discount.ImageName)" alt="">
                                 </a>
-                                <a class="secondary_img" asp-controller="Product" asp-action="ProductDetail" asp-route-productId="@discount.ProductId" asp-route-title="@discount.Product.Title.FixTextForUrl()">
-                                    <img src="@(PathExtension.ProductImage + discount.Product.ImageName)" alt="">
+                                <a class="secondary_img" asp-controller="Product" asp-action="ProductDetail" asp-route-productId="@discount.Id" asp-route-title="@discount.Title.FixTextForUrl()">
+                                    <img src="@(PathExtension.ProductImage + discount.ImageName)" alt="">
                                 </a>
                                 <div class="label_product">
                                     <span class="label_sale">فروش</span>
@@ -125,16 +125,16 @@
                                 <div class="add_to_cart">
                                     <a href="cart.html" title="افزودن به سبد">افزودن به سبد</a>
                                 </div>
-                                <div class="product_timing">
-                                    <div data-countdown="@discount.ExpireDate.ToString("yyyy/MM/dd")"></div>
-                                </div>
+                              @*   <div class="product_timing">
+                                    <div data-countdown="@discount..ToString("yyyy/MM/dd")"></div>
+                                </div> *@
                             </div>
                             <figcaption class="product_content">
                                 <div class="price_box">
-                                    <span class="old_price">@discount.Product.Price.ToString("#,0") تومان</span>
-                                    <span class="current_price">@((discount.Product.Price * (100 - discount.Percentage) / 100).ToString("#,0")) تومان</span>
+                                    <span class="old_price">@discount.Price.ToString("#,0") تومان</span>
+                                    
                                 </div>
-                                <h3 class="product_name"><a href="product-countdown.html">@discount.Product.Title</a></h3>
+                                <h3 class="product_name"><a href="product-countdown.html">@discount.Title</a></h3>
                             </figcaption>
                         </figure>
                     </article>

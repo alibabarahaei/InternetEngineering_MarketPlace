@@ -12,7 +12,7 @@ namespace MarketPlace.Application.DTOs.Products
         [Display(Name = "تصویر")]
         public IFormFile Image { get; set; }
 
-        public string ImageName { get; set; }
+        public string? ImageName { get; set; }
     }
 
     public enum CreateOrEditProductGalleryResult

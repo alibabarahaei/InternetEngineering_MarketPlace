@@ -122,9 +122,9 @@
                                 <div class="login_form_container">
                                     <div class="account_login_form">
                                         <form asp-area="Seller" asp-controller="ProductDiscount" asp-action="CreateDiscount">
-                                            <input type="hidden" asp-for="ProductId" />
+                                           @*  <input type="hidden" asp-for="ProductId" /> *@
                                             <label>محصول مورد نظر</label>
-                                            <input type="text" id="ProductName">
+                                           <input  asp-for="ProductId"/>
                                             <br />
 
                                             <label>تاریخ انقضا</label>

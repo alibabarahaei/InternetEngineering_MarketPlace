@@ -1,4 +1,4 @@
-using MarketPlace.Application.DTOs.Contacts;
+﻿using MarketPlace.Application.DTOs.Contacts;
 using MarketPlace.Application.InterfaceServices;
 using MarketPlace.Domain.Models.Site;
 using MarketPlace.Presentation.Models;
@@ -78,6 +78,19 @@ namespace MarketPlace.Presentation.Controllers
         public async Task<IActionResult> AboutUs()
         {
             var siteSetting = await _siteService.GetDefaultSiteSetting();
+            if (siteSetting == null)
+            {
+                siteSetting = new SiteSetting()
+                {
+                    Mobile = "09330807786",
+                    IsDefault = true,
+                    Phone = "09330807786",
+                    AboutUs = "فروشگاه",
+                    Address = "دانشگاه شاهد",
+                    Email = "alibabarahaei@gmail.com",
+
+                };
+            }
             return View(siteSetting);
         }
 

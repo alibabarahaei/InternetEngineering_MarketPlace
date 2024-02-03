@@ -108,10 +108,10 @@ namespace MarketPlace.Application.Services
             var user = await _userRepository.GetEntityById(currentUserId);
             if (user != null)
             {
-                var newPassword = _passwordHelper.EncodePasswordMd5(changePass.NewPassword);
-                if (newPassword != user.Password)
+                var currentPassword = _passwordHelper.EncodePasswordMd5(changePass.CurrentPassword);
+                if (currentPassword == user.Password)
                 {
-                    user.Password = newPassword;
+                    user.Password = _passwordHelper.EncodePasswordMd5(changePass.NewPassword);
                     _userRepository.EditEntity(user);
                     await _userRepository.SaveChanges();
 
@@ -146,7 +146,7 @@ namespace MarketPlace.Application.Services
             user.FirstName = profile.FirstName;
             user.LastName = profile.LastName;
 
-            if (avatarImage != null && avatarImage.IsImage())
+            if (/*avatarImage != null &&*/ avatarImage.IsImage())
             {
                 var imageName = Guid.NewGuid().ToString("N") + Path.GetExtension(avatarImage.FileName);
                 avatarImage.AddImageToServer(imageName, PathExtension.UserAvatarOriginServer, 100, 100, PathExtension.UserAvatarThumbServer, user.Avatar);

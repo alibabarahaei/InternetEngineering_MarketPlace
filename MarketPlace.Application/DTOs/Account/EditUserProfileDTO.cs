@@ -16,7 +16,7 @@ namespace MarketPlace.Application.DTOs.Account
 
         [Display(Name = "تصویر آواتار")]
         [MaxLength(200, ErrorMessage = "{0} نمی تواند بیشتر از {1} کاراکتر باشد")]
-        public string Avatar { get; set; }
+        public string? Avatar { get; set; }
     }
 
     public enum EditUserProfileResult
