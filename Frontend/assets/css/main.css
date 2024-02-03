@@ -1196,6 +1196,8 @@ body.light .progress-wrap svg.progress-circle path {
 }
 /* welcome----------------------- */
 
+
+/* slider-main------------------- */
 .slider-main-container{
     width: 100%;
     height: auto;
@@ -1255,3 +1257,31 @@ body.light .progress-wrap svg.progress-circle path {
     opacity: 0;
     visibility: hidden;
 }
+
+.slider-main-container:hover .carousel-indicators-ul{
+    transition: .2s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.slider-main-container .carousel-indicators-ul > li.carousel-indicators-item{
+    height: auto;
+    display: inline-block;
+    padding: 0 5px;
+    text-align: center;
+    text-indent: 0;
+    background: transparent;
+    color: #666;
+    font-size: 13px;
+    position: relative;
+    overflow: visible;
+    white-space: nowrap;
+    border-radius: 20px;
+    opacity: 1;
+    padding: 10px 0px;
+    margin-right: 0;
+    box-shadow: none;
+    width: 32.9%;
+    margin-left: 0;
+}
+/* slider-main------------------- */
