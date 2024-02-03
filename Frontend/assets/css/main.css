@@ -1636,3 +1636,167 @@ body.light .progress-wrap svg.progress-circle path {
 .slider-amazing-product{
     display: none;
 }
+
+/*countdown----------------*/
+.countdown-timer{
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    display: block;
+    position: relative;
+}
+
+.countdown{
+    direction: ltr;
+    margin-bottom: -10px;
+    margin-top: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.countdown .countdown-item {
+    display: inline-block;
+    margin-right: .6em;
+    margin-bottom: .6em;
+    text-align: center
+}
+
+.countdown .countdown-item:first-child {
+    margin-left: 0 !important
+}
+
+.countdown .countdown-value {
+    font-family: 'IRANSans';
+    font-weight: 400;
+    width: 35px;
+    height: 35px;
+    background: #eee;
+    border-radius: 50px;
+    line-height: 35px;
+    color: #7d7d7d;
+    font-size: 14px;
+}
+
+.countdown .countdown-label {
+    padding-top: .25rem;
+    color: #8c8c8c;
+    font-family: 'IRANSans';
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.countdown.h4 .countdown-label,
+.countdown.h5 .countdown-label,
+.countdown.h6 .countdown-label,
+.countdown.lead .countdown-label,
+.countdown.text-xl .countdown-label,
+.countdown.text-lg .countdown-label,
+.countdown.text-md .countdown-label,
+.countdown.text-sm .countdown-label,
+.countdown.text-xs .countdown-label {
+    font-size: .625rem
+}
+
+.countdown-style-1 .countdown-item {
+    margin-right: .6em;
+    margin-bottom: .5em
+}
+
+.countdown-style-1 .countdown-value {
+    position: relative;
+    min-width: 56px;
+    padding: .625rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 1.25rem -0.25rem rgba(64, 64, 64, 0.2)
+}
+
+.countdown-style-1 .countdown-label {
+    padding-top: 7px
+}
+
+.countdown-style-1.countdown-light-skin .countdown-value {
+    background-color: rgba(255, 255, 255, 0.12);
+    box-shadow: none
+}
+
+.countdown-style-2 .countdown-item {
+    margin-right: .7em;
+    margin-bottom: .5em
+}
+
+.countdown-style-2 .countdown-value {
+    position: relative;
+    min-width: 56px;
+    padding: .3125rem .625rem;
+    z-index: 1
+}
+
+.countdown-style-2 .countdown-value::before,
+.countdown-style-2 .countdown-value::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    z-index: -1
+}
+
+.countdown-style-2 .countdown-value::before {
+    top: .375rem;
+    left: .375rem;
+    border: 1px solid #e7e7e7;
+    background-color: #f5f5f5
+}
+
+.countdown-style-2 .countdown-value::after {
+    top: 0;
+    left: 0;
+    border: 1px solid #e7e7e7;
+    background-color: #fff
+}
+
+.countdown-style-2 .countdown-label {
+    padding-top: 11px
+}
+
+.countdown-style-2.countdown-light-skin .countdown-value {
+    color: #343b43
+}
+
+.countdown-style-2.countdown-light-skin .countdown-value::before {
+    opacity: .2
+}
+
+.countdown-style-2.countdown-light-skin .countdown-value::after {
+    border-color: #fff
+}
+
+.countdown-style-3 .countdown-value {
+    position: relative;
+    min-width: 35px
+}
+
+.countdown-style-3 .countdown-value::after {
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 16px;
+    height: 2px;
+    margin-left: -8px;
+    background-color: #ac32e4;
+    content: ''
+}
+
+.countdown-style-3 .countdown-label {
+    padding-top: .625rem
+}
+
+.countdown-light-skin .countdown-value {
+    color: #fff
+}
+
+.countdown-light-skin .countdown-label {
+    color: rgba(255, 255, 255, 0.5)
+}
+/*countdown----------------*/
